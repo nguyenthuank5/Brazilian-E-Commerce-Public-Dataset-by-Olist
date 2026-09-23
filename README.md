@@ -1,48 +1,82 @@
-# 🛒 E-commerce Data Engineering Pipeline
+# 🛒 E-Commerce Data Engineering Platform
 
-> End-to-End Data Engineering Project using Python, SQL Server, Docker and Apache Airflow
+<p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?logo=pandas)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red?logo=microsoftsqlserver)
-![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?logo=docker)
-![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-Orchestration-017CEE?logo=apacheairflow)
-![PyODBC](https://img.shields.io/badge/PyODBC-Database%20Connection-orange)
-![Status](https://img.shields.io/badge/Status-Completed-success)
+<img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white">
+<img src="https://img.shields.io/badge/SQL%20Server-2022-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white">
+<img src="https://img.shields.io/badge/Docker-Containerization-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+<img src="https://img.shields.io/badge/Airflow-3.3.2-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white">
+<img src="https://img.shields.io/badge/ETL-Pipeline-orange?style=for-the-badge">
+<img src="https://img.shields.io/badge/Data%20Warehouse-SQL%20Server-blue?style=for-the-badge">
+
+</p>
 
 ---
 
-## 📌 Overview
+# 📌 1. Project Overview
 
-This project is an **end-to-end Data Engineering pipeline** built to process and transform Brazilian e-commerce transaction data into a structured data warehouse for analytics.
+This project is an end-to-end **Data Engineering project** designed to simulate a real-world e-commerce data platform.
 
-The project uses the **Brazilian E-Commerce Public Dataset by Olist**, containing information about orders, customers, products, sellers, payments, reviews and other transactional entities.
+The project uses the Brazilian E-Commerce Public Dataset from Olist and builds a complete data pipeline from raw CSV files to an analytical Data Warehouse.
 
-The main objective is to simulate a practical Data Engineering workflow:
+The main technologies used in this project are:
+
+- Python
+- Pandas
+- PyODBC
+- Microsoft SQL Server 2022
+- Docker
+- Docker Compose
+- Apache Airflow
+- PostgreSQL
+- Redis
+- SQL
+
+The project focuses on the complete Data Engineering workflow:
 
 ```text
-Raw CSV Dataset
-       │
-       ▼
-Data Ingestion
-       │
-       ▼
-Python + Pandas
-       │
-       ▼
-SQL Server
-       │
-       ▼
-Bronze Layer
-       │
-       ▼
-Silver Layer
-       │
-       ▼
-Gold Layer
-       │
-       ▼
-Data Warehouse
-       │
-       ▼
-Analytics
+                    RAW DATA
+                       │
+                       ▼
+              ┌─────────────────┐
+              │   CSV DATASETS  │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Python + Pandas │
+              │      ETL        │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │    SQL SERVER   │
+              │  EcommerceDW    │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │  BRONZE LAYER   │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │  SILVER LAYER   │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │   GOLD LAYER    │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │  FACT / DIM     │
+              │     TABLES      │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │    ANALYTICS    │
+              └─────────────────┘
